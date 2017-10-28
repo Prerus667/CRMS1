@@ -1,17 +1,30 @@
 package com.ul.project.dao;
 
-import java.sql.Connection;
-import java.sql.SQLException;
+import java.util.ArrayList;
+
+import com.ul.project.dto.BookingDetail;
+import com.ul.project.dto.CarDetail;
+import com.ul.project.dto.UserDetail;
 
 public interface ICarRentalDao {
 	
-	public Connection gettingConnection();
+	public void addingNewCar (CarDetail detail) throws Exception;
 	
-	public void savingUser (String name,String username,String password,String email,String number ) throws SQLException;
+	public int gettingCarId () throws Exception;
 	
-	public int gettingUserId () throws SQLException;
-
-	public String validatingUser (String username) throws SQLException;
-
+	public CarDetail gettingCarDetails(String id) throws Exception;
+	
+	public void bookingCar(String id,BookingDetail detail) throws Exception;
+	
+	public int gettingbookingId () throws Exception;
+	
+	public ArrayList<CarDetail> gettingAllAvailableCars() throws Exception;
+	
+	public void editingCar (CarDetail detail) throws Exception;
+	
+	public int gettingCarIdfromBookingId (String id) throws Exception;
+	
+	public void updatingCarStatus (int id) throws Exception;
+	
 
 }
